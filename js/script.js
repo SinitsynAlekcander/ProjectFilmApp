@@ -1,46 +1,6 @@
 "use strict"; //Директива для современного кода, где неработают прошлые некоторые неточности
 
-// a=10;
-// console.log(a);
-
-
-// console.log('Hello');
-
-// // ПЕРЕМЕННЫЕ
-// let number = 5; //изменяемая
-// const nameMe = 'Al'; //НЕ изменяемая, нельзя переписать
-
-// number = 12;
-// console.log(nameMe);
-
-// // const me = {
-// //     name: 'Al',
-// //     age: 34
-// // };
-// // console.log(me.name);
-// // console.log(me['age']);
-
-// const arr = [5, 4, 3, 2];
-// console.log(arr[0]);
-
-// const arrObj = {
-//     a: 'a',
-//     b: 'b',
-//     c: 'c',
-//     d: {
-//         e: 'e',
-//         f: 'f'
-//     }
-// };
-
-// console.log(arrObj['a']);
-// console.log(arrObj['d']['e']);
-// console.log(arrObj.d.e);
-// console.log(arrObj['a']);
-
-alert('привет');
-
-const numberOfFilms = prompt('Сколько фильмов Вы посмотрели?');
+const numberOfFilms = +prompt('Сколько фильмов Вы посмотрели?');
 const personalMovieDB = {
     count: numberOfFilms,
     movies: {},
@@ -48,12 +8,61 @@ const personalMovieDB = {
     genres: [],
     privat: false
 };
-const a = prompt('Один из последних просмотренных фильмов?'),
-      b = +prompt('На сколько его оцените?'),
-      c = prompt('Один из последних просмотренных фильмов?'),
-      d = +prompt('На сколько его оцените?');
+// Заполнение DB
+for (let i = 0; i < 2; i++) {
+    const a = prompt('Один из последних просмотренных фильмов?'),
+          b = +prompt('На сколько его оцените?');
+    if (a != null && b != null && a != '' && b != '' && a.length <= 50) {
+        // console.log('Done1');
+        // console.log('Done2');
+        personalMovieDB.movies[a] = b;
+    } else {
+        // console.log('EROR');
+        i--;
+    }
+}
+//Резюме после формирование DB
+if (personalMovieDB.count < 10) {
+    console.log('Просмотрено довольно мало фильмов');
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+    console.log('Вы классический зритель');
+} else if (personalMovieDB.count > 30) {
+    console.log('Вы киноман');
+} else {
+    console.log('Произошла ошибка');
+}
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
 
 console.log(personalMovieDB);
+
+
+
+
+
+
+// let result = '';
+// const leght = 7;
+// for (let i = 1; i < leght; i++) {
+//     for (let j = i; j < leght; j++) {
+//         result += '*';
+//     }
+//     result += '\n';
+// }
+// console.log(result);
+
+let result = '';
+const lines = 5;
+
+for (let i = 1; i <= lines; i++) {
+    for (let j = i; j < lines; j++) {
+        result += ' ';
+    }
+    for (let k = 0; k <= i; k++) {
+        if (k === 0) {
+            result += '*';
+        } else {
+            result += '**';
+        }
+    }
+    result += '\n';
+}

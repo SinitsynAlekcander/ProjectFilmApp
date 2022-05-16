@@ -24,9 +24,16 @@ const arr = [5, 4, 3, 2];
 console.log(arr[0]);
 
 const arrObj = {
-a: 'a',
-b: 'b',
-c: 'c'
+    a: 'a',
+    b: 'b',
+    c: 'c',
+    d: {
+        e: 'e',
+        f: 'f'
+    }
 };
 
-console.log(arrObj.c);
+console.log(arrObj['a']);
+console.log(arrObj['d']['e']);
+console.log(arrObj.d.e);
+console.log(arrObj['a']);

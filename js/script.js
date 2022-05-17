@@ -18,7 +18,7 @@ const personalMovieDB = {
     privat: false
 };
 
-// Заполнение DB
+// // Заполнение DB
 function rememberMyFilm() {
     for (let i = 0; i < 2; i++) {
         const nameOfFilm = prompt('Один из последних просмотренных фильмов?'),
@@ -39,9 +39,9 @@ function rememberMyFilm() {
         }
     }
 }
-rememberMyFilm();
+// rememberMyFilm();
 
-//Резюме после формирование DB
+// //Резюме после формирование DB
 function detectedPersonalLevel() {
     if (personalMovieDB.count < 10) {
         console.log('Просмотрено довольно мало фильмов');
@@ -53,9 +53,26 @@ function detectedPersonalLevel() {
         console.log('Произошла ошибка');
     }
 }
-detectedPersonalLevel();
+// detectedPersonalLevel();
 
-console.log(personalMovieDB);
+//Отображение в консоли заполненной DB, если privat = tru
+function showMyDB(hiddenDB) {
+    if (!hiddenDB) {
+        console.log(personalMovieDB);
+    }
+}
+showMyDB(personalMovieDB.privat);
+
+//Заполнение жанров DB
+function writeYourGenres() {
+    for (let i = 1; i <= 3; i++) {
+        // const genre = prompt(`ваш любимый жанр по номером ${i}`);
+        // personalMovieDB.genres[i - 1] = genre;
+        personalMovieDB.genres[i - 1] = prompt(`ваш любимый жанр по номером ${i}`);
+    }
+}
+writeYourGenres();
+
 
 
 
@@ -72,19 +89,19 @@ console.log(personalMovieDB);
 // }
 // console.log(result);
 
-let result = '';
-const lines = 5;
+// let result = '';
+// const lines = 5;
 
-for (let i = 1; i <= lines; i++) {
-    for (let j = i; j < lines; j++) {
-        result += ' ';
-    }
-    for (let k = 0; k <= i; k++) {
-        if (k === 0) {
-            result += '*';
-        } else {
-            result += '**';
-        }
-    }
-    result += '\n';
-}
+// for (let i = 1; i <= lines; i++) {
+//     for (let j = i; j < lines; j++) {
+//         result += ' ';
+//     }
+//     for (let k = 0; k <= i; k++) {
+//         if (k === 0) {
+//             result += '*';
+//         } else {
+//             result += '**';
+//         }
+//     }
+//     result += '\n';
+// }

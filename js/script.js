@@ -21,18 +21,13 @@ const personalMovieDB = {
                 nameOfFilm != '' &&
                 assessmentOfFilm != '' &&
                 nameOfFilm.length <= 50) {
-                // console.log('Done1');
-                // console.log('Done2');
                 personalMovieDB.movies[nameOfFilm] = assessmentOfFilm;
             } else {
-                // console.log('EROR');
-                console.log(i);
                 i--;
-                console.log(i);
             }
         }
     },
-    detectedPersonalLevel: function() {
+    detectedPersonalLevel: function () {
         if (personalMovieDB.count < 10) {
             console.log('Просмотрено довольно мало фильмов');
         } else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
@@ -43,17 +38,30 @@ const personalMovieDB = {
             console.log('Произошла ошибка');
         }
     },
-    showMyDB: function(hiddenDB) {
+    showMyDB: function (hiddenDB) {
         if (!hiddenDB) {
             console.log(personalMovieDB);
         }
     },
-    writeYourGenres: function() {
-        for (let i = 1; i <= 3; i++) {
-            // const genre = prompt(`ваш любимый жанр по номером ${i}`);
-            // personalMovieDB.genres[i - 1] = genre;
-            personalMovieDB.genres[i - 1] = prompt(`ваш любимый жанр по номером ${i}`);
+    toggleVisibleMyDB: function () {
+        if (personalMovieDB.privat) {
+            personalMovieDB.privat = false;
+        } else {
+            personalMovieDB.privat = true;
         }
+    },
+    writeYourGenres: function () {
+        for (let i = 1; i <= 3; i++) {
+            let genre = prompt(`ваш любимый жанр по номером ${i}`);
+            if (genre == '' || genre == null) {
+                console.log('Вы ввели некорректные данные или не вели их вовсе');
+                i--;
+            } else {
+                personalMovieDB.genres[i - 1] = genre;
+            }
+        }
+        personalMovieDB.genres.forEach((item, i) => {
+            console.log(`Жанр №${i+1} - значение ${item}`);
+        });
     }
-};
-
+    };

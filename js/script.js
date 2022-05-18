@@ -64,4 +64,4 @@ const personalMovieDB = {
             console.log(`Жанр №${i+1} - значение ${item}`);
         });
     }
-    };
+    }; 
